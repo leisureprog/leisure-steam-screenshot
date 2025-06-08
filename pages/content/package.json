@@ -1,0 +1,31 @@
+{
+  "name": "@extension/content-script",
+  "version": "0.4.2",
+  "description": "chrome extension - content script",
+  "type": "module",
+  "private": true,
+  "sideEffects": true,
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "clean:node_modules": "bunx rimraf node_modules",
+    "clean:turbo": "rimraf .turbo",
+    "clean": "bun clean:turbo && bun clean:node_modules",
+    "build": "vite build",
+    "dev": "vite build --mode development",
+    "lint": "eslint .",
+    "lint:fix": "bun lint --fix",
+    "prettier": "prettier . --write --ignore-path ../../.prettierignore",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@extension/storage": "workspace:*",
+    "@extension/env": "workspace:*"
+  },
+  "devDependencies": {
+    "@extension/hmr": "workspace:*",
+    "@extension/tsconfig": "workspace:*",
+    "@extension/vite-config": "workspace:*"
+  }
+}
